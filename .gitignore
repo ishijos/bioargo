@@ -1,0 +1,13 @@
+# Ignore Mac system files
+.DS_Store
+
+# Ignore all NetCDF data files
+*.nc
+fixed_*_chl_bioargo/
+Bioargo-/
+
+# Ignore all generated CSV spreadsheets
+*.csv
+
+# Ignore the plots folder and everything inside it
+plots/
