@@ -1,43 +1,16 @@
-welcome to my bioargo project!
+# DCM Explorer — Indian Ocean
 
-this repository contains the end-to-end pipeline for detecting and classifying Deep Chlorophyll Maxima (DCM) in BGC-Argo float profiles from the Indian Ocean, producing the dataset used in our paper.
+An interactive visualisation of the Deep Chlorophyll Maximum (DCM) across Indian Ocean basins, built as a trial of ongoing BGC-Argo float analysis.
 
-everything here is built for five sub-regions:
+The DCM is a subsurface layer of elevated chlorophyll found throughout the stratified open ocean. This explorer lets you browse monthly vertical profiles of temperature, salinity, dissolved oxygen, nitrate, backscatter (BBP700), and chlorophyll across five Indian Ocean regions — Arabian Sea, Bay of Bengal, Equatorial IO, Southern IO, and the Seychelles–Chagos Thermocline Ridge (SCTR) — alongside a surface chlorophyll map from OC-CCI v2.
 
-- Arabian Sea (AS)
-- Bay of Bengal (BoB)
-- Equatorial Indian Ocean (EIO)
-- Southern Indian Ocean (SIO)
-- Seychelles-Chagos Thermocline Ridge (SCTR)
+**Data sources**
+- Vertical profiles: BGC-Argo Sprof netCDF files (monthly climatologies, 2012–2024)
+- Surface chlorophyll: OC-CCI v2 monthly composites at ~0.2° resolution
+- Coastlines: Natural Earth 50m
 
-**what the pipeline does**
+**DCM types**
+- **DAM** (Deep Acclimation Maximum): photoacclimation artifact — pigment increases per cell under low light; BBP stays flat
+- **DBM** (Deep Biomass Maximum): true biomass increase — chlorophyll and BBP co-peak; driven by nutrient supply below the pycnocline
 
-the single notebook `Deep_Chlorophyll_Maxima_Classifier.ipynb` handles everything end-to-end:
-
-- **QC filtering:** only D (delayed) and A (adjusted) mode data accepted, flags 1/2/5 only
-- **Smoothing:** resolution-dependent rolling filter (Cornec et al. 2021) — 5-point median for CHLA, median + mean for BBP700, only triggered when native vertical resolution ≤ 3 m
-- **DCM detection:** subsurface CHLA peak classified as a DCM when chla_ratio ≥ 1.5 (rounded half-up), where chla_ratio = peak CHLA ÷ surface median in 0–15 m
-- **DAM vs DBM split:** confirmed DCMs are further split by BBP700 — bbp_ratio > 1.3 → DBM (biomass), ≤ 1.3 → DAM (photoacclimation)
-- **Mixed Layer Depth:** TEOS-10 sigma0 threshold of 0.03 kg/m³ from 10 dbar, linearly interpolated
-- **Nitracline depth:** depth where nitrate first exceeds surface-layer mean + 1 µmol/m³ (Cornec et al. 2021)
-- **26 °C isotherm depth:** linearly interpolated
-- **Geographic cleaning:** basin assigned purely from lat/lon bounding boxes, profiles outside all boxes dropped
-- **Satellite matching:** surface chlorophyll and PAR matched from monthly OCCCI/satellite NetCDF by nearest grid cell and calendar month
-
-**output**
-
-`io_data/basin_csvs/profileswithparandsurfchl.csv` — one row per valid profile with columns: `WMO_ID, cycle, date, lat, lon, monsoon_phase, DCM_TYPE, DCM_Depth, Chla_DCM, bbp_DCM, chla_ratio, bbp_ratio, MLD, nitracline_depth, isotherm_26C_depth, basin_box, surface_chl, PAR`
-
-**input data**
-
-- BGC-Argo Sprof NetCDF files from Argo GDAC (`fixed_*_chl_bioargo/`)
-- monthly surface CHL: `io_data/chl_monthly_2012_2024_IO.nc` (OCCCI 2012–2024)
-- monthly PAR: `io_data/par_monthly_2012_2024_IO.nc`
-
-**dependencies**
-
-```
-pip install numpy pandas xarray gsw
-```
-
-thanks for drifting by, hope this helps!
+This is a trial visualisation. Analysis and classification are part of a broader DCM characterisation study for the Indian Ocean.
