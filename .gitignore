@@ -1,0 +1,36 @@
+# Jupyter
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Large data files — NetCDF
+*.nc
+
+# Raw BGC-Argo float directories
+fixed_Arabian_Sea_chl_bioargo/
+fixed_Bay_of_Bengal_chl_bioargo/
+fixed_Equatorial_IO_chl_bioargo/
+fixed_Southern_Indian_Ocean_chl_bioargo/
+
+# Intermediate and output CSVs
+*.csv
+
+# Plots and figures
+*.png
+*.pdf
+*.jpg
+*.jpeg
+
+# Result directories
+dcm_threshold_comparison_results/
+dcm_threshold_comparison_resultsv2/
+climatology4_results/
+climatology5_results/
+climatology6_results/
+climatology7_results/
+argo_woa_correlation/
+category_search_output/
+io_data/basin_csvs/regression_outputs/
