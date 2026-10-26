@@ -1,14 +1,12 @@
 # bioargo — Indian Ocean DCM Analysis
 
 welcome to my bioargo project!
-
-this repository contains two things: an end-to-end pipeline for detecting and classifying Deep Chlorophyll Maxima (DCM) in BGC-Argo float profiles from the Indian Ocean, and an interactive visualisation of the results.
+This repository contains an end-to-end pipeline for detecting and classifying Deep Chlorophyll Maxima (DCM) in BGC-Argo float profiles from the Indian Ocean used for further DCM analysis. 
 
 ---
+ DCM Classifier
 
-## Part 1 — DCM Classifier
-
-the single notebook `Deep_Chlorophyll_Maxima_Classifier.ipynb` handles everything end-to-end, producing the dataset used in our paper across five Indian Ocean sub-regions:
+the single notebook `Deep_Chlorophyll_Maxima_Classifier.ipynb` handles everything end-to-end, producing the dataset used across five Indian Ocean sub-regions:
 
 - Arabian Sea (AS)
 - Bay of Bengal (BoB)
