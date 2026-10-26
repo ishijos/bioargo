@@ -45,17 +45,4 @@ pip install numpy pandas xarray gsw
 ```
 
 ---
-
-## Part 2 — DCM Explorer (interactive)
-
-`index.html` is a self-contained interactive visualisation — open it in any browser, or visit the live version at [ishijos.github.io/bioargo](https://ishijos.github.io/bioargo).
-
-it lets you browse monthly vertical profiles of temperature, salinity, dissolved oxygen, nitrate, backscatter (BBP700), and chlorophyll across the five basins, alongside a surface chlorophyll map from OC-CCI v2. this is a trial visualisation built to explore the climatological patterns behind the classifier output.
-
-**DCM types shown**
-- **DAM** (Deep Acclimation Maximum): photoacclimation artifact — pigment increases per cell under low light; BBP stays flat
-- **DBM** (Deep Biomass Maximum): true biomass increase — chlorophyll and BBP co-peak; driven by nutrient supply below the pycnocline
-
----
-
 thanks for drifting by, hope this helps!
